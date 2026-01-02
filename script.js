@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("script.js loaded");
+  console.log("✅ script.js loaded");
 
-  if (typeof PRODUCTS === "undefined") {
-    console.error("❌ PRODUCTS is not defined");
+  if (!window.PRODUCTS) {
+    console.error("❌ PRODUCTS not found");
     return;
   }
 
-  console.log("✅ PRODUCTS loaded:", PRODUCTS);
+  console.log("✅ PRODUCTS found:", PRODUCTS);
 
   const grid = document.getElementById("productGrid");
   const filters = document.getElementById("filters");
@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderFilters() {
     filters.innerHTML = categories
-      .map(cat => `<button data-cat="${cat}">${cat}</button>`)
+      .map(cat => `<button>${cat}</button>`)
       .join("");
 
-    filters.querySelectorAll("button").forEach(btn => {
+    [...filters.children].forEach((btn, i) => {
       btn.onclick = () => {
-        currentCategory = btn.dataset.cat;
+        currentCategory = categories[i];
         renderProducts();
       };
     });
@@ -33,31 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderProducts() {
     grid.innerHTML = "";
 
-    const visible = PRODUCTS.filter(
+    const list = PRODUCTS.filter(
       p => currentCategory === "All" || p.category === currentCategory
     );
 
-    if (visible.length === 0) {
-      grid.innerHTML = "<p>No products found</p>";
-      return;
-    }
+    list.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
 
-    visible.forEach(p => {
-      grid.innerHTML += `
-        <div class="card">
-          <img src="${p.image}" alt="${p.name_en}">
-          <h3>${currentLang === "en" ? p.name_en : p.name_ta}</h3>
-          <p>${p.unit}</p>
-          <strong>₹${p.price}</strong>
-        </div>
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.name_en}">
+        <h3>${currentLang === "en" ? p.name_en : p.name_ta}</h3>
+        <p>${p.unit}</p>
+        <strong>₹${p.price}</strong>
       `;
+
+      grid.appendChild(card);
     });
   }
 
-  langSelect.addEventListener("change", e => {
+  langSelect.onchange = e => {
     currentLang = e.target.value;
     renderProducts();
-  });
+  };
 
   renderFilters();
   renderProducts();
