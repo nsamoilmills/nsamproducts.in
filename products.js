@@ -1,0 +1,20 @@
+const PRODUCTS = [
+  {
+    sku: "OIL-GNUT-1L",
+    name_en: "Groundnut Oil 1L",
+    name_ta: "நிலக்கடலை எண்ணெய் 1L",
+    price: 300,
+    category: "Oils",
+    unit: "1 L",
+    image: "assets/sample.png"
+  },
+  {
+    sku: "HRB-SEMB-100",
+    name_en: "Sembaruthi Flower Powder 100g",
+    name_ta: "செம்பருத்தி பூ பொடி 100g",
+    price: 100,
+    category: "Herbal Powders",
+    unit: "100 g",
+    image: "assets/sample.png"
+  }
+];
