@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+}
+
+header {
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  background: #2e7d32;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+}
