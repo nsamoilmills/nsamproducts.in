@@ -1,48 +1,64 @@
-const grid = document.getElementById("productGrid");
-const filters = document.getElementById("filters");
-const langSelect = document.getElementById("language");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("script.js loaded");
 
-let currentLang = "en";
-let currentCategory = "All";
+  if (typeof PRODUCTS === "undefined") {
+    console.error("❌ PRODUCTS is not defined");
+    return;
+  }
 
-const categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
+  console.log("✅ PRODUCTS loaded:", PRODUCTS);
 
-function renderFilters() {
-  filters.innerHTML = categories
-    .map(cat => `<button onclick="setCategory('${cat}')">${cat}</button>`)
-    .join("");
-}
+  const grid = document.getElementById("productGrid");
+  const filters = document.getElementById("filters");
+  const langSelect = document.getElementById("language");
 
-function setCategory(cat) {
-  currentCategory = cat;
-  renderProducts();
-}
+  let currentLang = "en";
+  let currentCategory = "All";
 
-function renderProducts() {
-  grid.innerHTML = "";
+  const categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
 
-  PRODUCTS
-    .filter(p => currentCategory === "All" || p.category === currentCategory)
-    .forEach(p => {
+  function renderFilters() {
+    filters.innerHTML = categories
+      .map(cat => `<button data-cat="${cat}">${cat}</button>`)
+      .join("");
+
+    filters.querySelectorAll("button").forEach(btn => {
+      btn.onclick = () => {
+        currentCategory = btn.dataset.cat;
+        renderProducts();
+      };
+    });
+  }
+
+  function renderProducts() {
+    grid.innerHTML = "";
+
+    const visible = PRODUCTS.filter(
+      p => currentCategory === "All" || p.category === currentCategory
+    );
+
+    if (visible.length === 0) {
+      grid.innerHTML = "<p>No products found</p>";
+      return;
+    }
+
+    visible.forEach(p => {
       grid.innerHTML += `
         <div class="card">
           <img src="${p.image}" alt="${p.name_en}">
           <h3>${currentLang === "en" ? p.name_en : p.name_ta}</h3>
           <p>${p.unit}</p>
           <strong>₹${p.price}</strong>
-          <a href="https://wa.me/919944291896?text=I want to order ${p.name_en}">
-            Order on WhatsApp
-          </a>
         </div>
       `;
     });
-}
+  }
 
-langSelect.addEventListener("change", e => {
-  currentLang = e.target.value;
+  langSelect.addEventListener("change", e => {
+    currentLang = e.target.value;
+    renderProducts();
+  });
+
+  renderFilters();
   renderProducts();
 });
-
-renderFilters();
-renderProducts();
-
