@@ -10,7 +10,7 @@
 
 <header>
   <h1>NSAM Oils & Foods</h1>
-  <p id="subtitle">Healthy Oils & Honest Foods</p>
+  <p>Healthy Oils & Honest Foods</p>
 
   <select id="language">
     <option value="en">English</option>
@@ -19,20 +19,23 @@
 </header>
 
 <main>
+  <!-- THESE TWO DIVS ARE REQUIRED -->
   <div id="filters"></div>
-  <div class="grid" id="productGrid"></div>
+  <div id="productGrid" class="grid"></div>
 </main>
 
 <footer>
   <p>📍 Electronic City Phase 1, Bengaluru</p>
   <p>
-    📲 <a href="https://wa.me/919944291896" target="_blank">
+    <a href="https://wa.me/919944291896" target="_blank">
       Order on WhatsApp
     </a>
   </p>
 </footer>
 
+<!-- SCRIPT ORDER IS CRITICAL -->
 <script src="products.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
