@@ -9,7 +9,7 @@ window.PRODUCTS = [
     price: 300,
     category: "Oils",
     unit: "1 L",
-    image: "assets/IMG_1180.PNG"
+    image: "assets/sample.png"
   },
   {
     sku: "HRB-SEMB-100",
@@ -18,7 +18,7 @@ window.PRODUCTS = [
     price: 100,
     category: "Herbal Powders",
     unit: "100 g",
-    image: "assets/IMG_1180.PNG"
+    image: "assets/sample.png"
   }
 ];
 
