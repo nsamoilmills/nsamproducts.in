@@ -10,30 +10,29 @@
 
 <header>
   <h1>NSAM Oils & Foods</h1>
-  <p>Cold Pressed Oils • Natural Foods</p>
+  <p id="subtitle">Healthy Oils & Honest Foods</p>
+
+  <select id="language">
+    <option value="en">English</option>
+    <option value="ta">தமிழ்</option>
+  </select>
 </header>
 
-<main class="container">
-  <div class="grid">
-    <div class="card">
-      <img src="https://via.placeholder.com/300" />
-      <h3>Groundnut Oil</h3>
-      <p>Cold pressed | 1L</p>
-      <a href="https://wa.me/919944291896">Order on WhatsApp</a>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300" />
-      <h3>Sesame Oil</h3>
-      <p>Traditional | 1L</p>
-      <a href="https://wa.me/919944291896">Order on WhatsApp</a>
-    </div>
-  </div>
+<main>
+  <div id="filters"></div>
+  <div class="grid" id="productGrid"></div>
 </main>
 
 <footer>
   <p>📍 Electronic City Phase 1, Bengaluru</p>
+  <p>
+    📲 <a href="https://wa.me/919944291896" target="_blank">
+      Order on WhatsApp
+    </a>
+  </p>
 </footer>
 
+<script src="products.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
