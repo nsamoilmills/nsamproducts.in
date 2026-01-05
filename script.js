@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentCategory = "All";
 
   const categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
-
   function renderFilters() {
     filters.innerHTML = categories
       .map(cat => `<button>${cat}</button>`)
