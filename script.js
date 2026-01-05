@@ -54,16 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "card";
 
       card.innerHTML = `
-        <img src="${p.image}" alt="${name}">
-        <h3>${name}</h3>
-        <p>${p.unit}</p>
-        <strong>${priceText}</strong>
+  <img src="${p.image}" alt="${name}">
 
-        <a href="${whatsappLink}" target="_blank" class="wa-btn">
-          Order on WhatsApp
-        </a>
-      `;
+  ${p.video ? `
+    <video controls width="100%" style="margin-top:8px;border-radius:8px">
+      <source src="${p.video}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  ` : ""}
 
+  <h3>${name}</h3>
+  <p>${p.unit}</p>
+  <strong>${priceText}</strong>
+
+  <a href="${whatsappLink}" target="_blank" class="wa-btn">
+    Order on WhatsApp
+  </a>
+`;
       grid.appendChild(card);
     });
   }
