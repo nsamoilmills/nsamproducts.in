@@ -70,3 +70,20 @@ footer {
   padding: 1rem;
   background: #eee;
 }
+
+.wa-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  background: #25D366;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.wa-btn:hover {
+  background: #1ebe5d;
+}
+
