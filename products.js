@@ -39,7 +39,8 @@ window.PRODUCTS = [
     price: 0,
     category: "Sarees",
     unit: "1 Piece",
-    image: "assets/sample.png?v=2"
+    image: "assets/sample.png?v=2",
+    video: "assets/videos/spacesilk.mp4"
   },
   {
     sku: "CLT-CHUDI-001",
